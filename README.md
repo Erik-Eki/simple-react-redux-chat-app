@@ -1,5 +1,8 @@
 # Simple React chat app
 
+![image](https://github.com/Erik-Eki/simple-react-redux-chat-app/assets/70281449/c2311784-0e0c-41ce-be1f-3b7d32a3cf36)
+![rr](https://github.com/Erik-Eki/simple-react-redux-chat-app/assets/70281449/7b09c7c1-9ccb-4cf2-9bd5-726f8ea663c4)
+
 This app uses:
 - React
 - Redux
