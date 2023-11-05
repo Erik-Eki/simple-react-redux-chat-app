@@ -1,0 +1,25 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model messages {
+  id      Int    @id @default(autoincrement())
+  content String
+  sender  String @db.VarChar(255)
+  room_id Int
+  createdAt DateTime @default(now()) @db.Timestamptz(6)
+  updatedAt DateTime @updatedAt @db.Timestamptz(6)
+  rooms   rooms  @relation(fields: [room_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model rooms {
+  id       Int        @id @default(autoincrement())
+  name     String     @db.VarChar(255)
+  messages messages[]
+}
+

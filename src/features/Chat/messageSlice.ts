@@ -4,7 +4,7 @@ import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit"
 import { RootState, AppThunk } from "../../app/store"
 
 /* Instruments */
-import { fetchMessages, addMessage } from './thunks'
+import { getMessages, addMessage } from './thunks'
 
 const initialState: MessageSliceState = {
   data: undefined,
@@ -26,17 +26,17 @@ export const messageSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchMessages.pending, (state) => {
+      .addCase(getMessages.pending, (state) => {
         // Set the status to loading and reset the error
         state.status = 'loading';
         state.error = undefined;
       })
-      .addCase(fetchMessages.fulfilled, (state, action) => {
+      .addCase(getMessages.fulfilled, (state, action) => {
         // Set the status to success and update the data
         state.status = 'idle';
         state.data = action.payload;
       })
-      .addCase(fetchMessages.rejected, (state, action) => {
+      .addCase(getMessages.rejected, (state, action) => {
         // Set the status to success and update the data
         state.status = 'failed';
         state.error = action.error.message;

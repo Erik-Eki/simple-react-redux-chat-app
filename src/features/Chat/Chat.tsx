@@ -19,7 +19,7 @@ import { useAppSelector, useAppDispatch } from "../../app/hooks"
 import {
   selectMessage
 } from "./messageSlice"
-import { fetchMessages } from "./thunks";
+import { getMessages } from "./thunks";
 
 export const Chat = () => {
   const messages = useAppSelector(selectMessage)
@@ -35,7 +35,7 @@ export const Chat = () => {
 
     // const user = dispatch(fetchUser(currentUser))
     // dispatch(fetchUser("1"))
-    dispatch(fetchMessages("1"))
+    dispatch(getMessages(1))
     //setCurrentUser(userData)
 
   }, [dispatch])
@@ -48,18 +48,18 @@ export const Chat = () => {
         {messages &&
           <>
             {messages.map((msg: MessageDataObject, index: number) => {
-              if (msg.username === currentUser) {
+              if (msg.sender === currentUser) {
                 return (
                   <div key={index} className={styles.message + " " + styles.currentUserMessage}>
-                    <div className={styles.username}>{msg.username}</div>
-                    <p>{msg.message}</p>
+                    <div className={styles.username}>{msg.sender}</div>
+                    <p>{msg.content}</p>
                   </div>
                 );
               } else {
                 return (
                   <div key={index} className={styles.message + " " + styles.otherUserMessage}>
-                    <div className={styles.username}>{msg.username}</div>
-                    <p>{msg.message}</p>
+                    <div className={styles.username}>{msg.sender}</div>
+                    <p>{msg.content}</p>
                   </div>
                 );
               }
@@ -68,7 +68,7 @@ export const Chat = () => {
         }
       </div>
 
-      {/* <Writer /> */}
+      <Writer />
 
     </div>
   );

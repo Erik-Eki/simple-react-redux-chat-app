@@ -1,6 +1,15 @@
+export interface MessagesArray {
+    data: []
+}
+
 export interface MessageDataObject {
-    user_id: number,
+    room_id: number,
+    sender: string,
+    content: string
+}
+
+export interface SendMessageDataObject {
     username: string,
     message: string,
-    timestamp: Date
+    roomID: number
 }

@@ -2,6 +2,8 @@ import logo from "./logo.svg"
 import { Counter } from "./features/counter/Counter"
 import { SidebarRooms } from "./features/Sidebar/SidebarRooms"
 import { Chat } from "./features/Chat/Chat"
+import Users from "./features/UserTest/UserTest"
+import Posts from "./features/Post/Post"
 import "./App.css"
 
 function App() {
@@ -11,7 +13,8 @@ function App() {
     <div className="App">
       <header className="App-header">
         {/* <img src={logo} className="App-logo" alt="logo" /> */}
-        
+        {/* <Users /> */}
+        {/* <Posts /> */}
         <Chat />
         {/* <Counter /> */}
         <p>
