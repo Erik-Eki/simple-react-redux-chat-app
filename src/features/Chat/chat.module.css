@@ -1,0 +1,36 @@
+.chatBoxParent {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  padding: 1rem;
+
+  .chatBox {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .message {
+    color: white;
+    padding: 0rem 1rem 1rem 1rem;
+    border-radius: 10px;
+    width: 80%;
+  }
+}
+
+.username {
+    font-weight: 600;
+    font-size: small;
+}
+
+.currentUserMessage {
+  background-color: rgb(99, 165, 0);
+  align-self: flex-end;
+}
+
+.otherUserMessage {
+  background-color: rgb(0, 109, 235);
+  align-self: flex-start;
+}
